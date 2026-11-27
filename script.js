@@ -54,7 +54,7 @@ if (contactForm) {
     const formData = new FormData(contactForm);
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
