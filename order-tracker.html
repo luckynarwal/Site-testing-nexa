@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Tracker | NexaSocial</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { padding: 20px; max-width: 1000px; margin: 0 auto; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.header h1 { font-size: 1.5rem; }
+.btn-export { background: var(--accent); color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+.btn-export:hover { background: var(--accent-hover); }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--surface-hover); color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+tr:last-child td { border-bottom: none; }
+tr:hover { background: var(--surface-hover); }
+.status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+.status.pending { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.status.progress { background: rgba(99, 102, 241, 0.15); color: var(--accent); }
+.status.done { background: rgba(34, 197, 94, 0.15); color: var(--success); }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.empty-state button { margin-top: 20px; }
+.add-order { margin-bottom: 25px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: end; }
+.add-order input, .add-order select { width: 100%; }
+.add-order .btn-add { grid-column: 1 / -1; width: auto; }
+.toast { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Order Tracker</h1>
+  <button class="btn-export" onclick="exportCSV()">Export CSV</button>
+</div>
+
+<div class="add-order" id="addOrderForm">
+  <input type="text" id="orderClient" placeholder="Client name / handle">
+  <input type="text" id="orderPlatform" placeholder="Platform (Instagram, TikTok...)">
+  <input type="text" id="orderService" placeholder="Service (Followers, Likes...)">
+  <input type="text" id="orderAmount" placeholder="Amount (₹)">
+  <select id="orderStatus">
+    <option value="Pending">Pending</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Completed">Completed</option>
+  </select>
+  <button class="btn btn-primary btn-add" onclick="addOrder()">Add Order</button>
+</div>
+
+<div class="table-wrap">
+<table id="ordersTable">
+<thead>
+<tr>
+<th>Client</th>
+<th>Platform</th>
+<th>Service</th>
+<th>Amount</th>
+<th>Status</th>
+<th>Date Added</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="ordersBody"></tbody>
+</table>
+</div>
+
+<div id="toast" class=" toast">Order saved</div>
+
+<script>
+const STORAGE_KEY = 'nexa_orders';
+let orders = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+const clientInput = document.getElementById('orderClient');
+const platformInput = document.getElementById('orderPlatform');
+const serviceInput = document.getElementById('orderService');
+const amountInput = document.getElementById('orderAmount');
+const statusSelect = document.getElementById('orderStatus');
+const ordersBody = document.getElementById('ordersBody');
+const toast = document.getElementById('toast');
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+  render();
+  showToast();
+}
+
+function showToast() {
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+function addOrder() {
+  if (!clientInput.value || !platformInput.value || !serviceInput.value || !amountInput.value) {
+    alert('Please fill all fields');
+    return;
+  }
+  const order = {
+    id: Date.now(),
+    client: clientInput.value,
+    platform: platformInput.value,
+    service: serviceInput.value,
+    amount: amountInput.value,
+    status: statusSelect.value,
+    date: new Date().toLocaleDateString()
+  };
+  orders.push(order);
+  clientInput.value = '';
+  platformInput.value = '';
+  serviceInput.value = '';
+  amountInput.value = '';
+  save();
+}
+
+function deleteOrder(id) {
+  if (!confirm('Delete this order?')) return;
+  orders = orders.filter(o => o.id !== id);
+  save();
+}
+
+function updateStatus(id, newStatus) {
+  const order = orders.find(o => o.id === id);
+  if (order) {
+    order.status = newStatus;
+    save();
+  }
+}
+
+function statusHtml(status) {
+  const classes = {
+    'Pending': 'pending',
+    'In Progress': 'progress',
+    'Completed': 'done'
+  };
+  return `<span class="status ${classes[status] || ''}">${status}</span>`;
+}
+
+function render() {
+  ordersBody.innerHTML = '';
+  if (orders.length === 0) {
+    ordersBody.innerHTML = `<tr><td colspan="7" class="empty-state">No orders yet. Add your first order above.</td></tr>`;
+    return;
+  }
+  orders.slice().reverse().forEach(order => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${escapeHtml(order.client)}</td>
+      <td>${escapeHtml(order.platform)}</td>
+      <td>${escapeHtml(order.service)}</td>
+      <td>₹${escapeHtml(order.amount)}</td>
+      <td>${statusHtml(order.status)}</td>
+      <td>${escapeHtml(order.date)}</td>
+      <td>
+        <select onchange="updateStatus(${order.id}, this.value)">
+          <option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option>
+          <option value="In Progress" ${order.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
+          <option value="Completed" ${order.status === 'Completed' ? 'selected' : ''}>Completed</option>
+        </select>
+        <button onclick="deleteOrder(${order.id})" style="background:none;border:none;color:var(--text-muted);cursor:pointer;margin-left:10px;">🗑️</button>
+      </td>
+    `;
+    ordersBody.appendChild(tr);
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function exportCSV() {
+  if (orders.length === 0) {
+    alert('No orders to export');
+    return;
+  }
+  const headers = ['Client','Platform','Service','Amount','Status','Date'];
+  const rows = orders.map(o => [o.client, o.platform, o.service, o.amount, o.status, o.date]);
+  const csv = [headers, ...rows]
+    .map(r => r.map(f => `"${String(f).replace(/"/g, '""')}"`).join(','))
+    .join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'nexa-orders.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+render();
+</script>
+</body>
+</html>

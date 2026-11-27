@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Service | NexaSocial</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<meta name="razorpay-key-id" content="YOUR_RAZORPAY_KEY_ID">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+<div class="nav-container">
+<div class="nav-logo">NexaSocial</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li class="dropdown">
+<a href="services.html" class="dropdown-toggle">Services ▾</a>
+<ul class="dropdown-menu">
+<li><a href="instagram.html">Instagram</a></li>
+<li><a href="tiktok.html">TikTok</a></li>
+<li><a href="youtube.html">YouTube</a></li>
+<li><a href="facebook.html">Facebook</a></li>
+<li><a href="x.html">X (Twitter)</a></li>
+<li><a href="telegram.html">Telegram</a></li>
+<li><a href="linkedin.html">LinkedIn</a></li>
+<li><a href="custom.html">Custom Campaigns</a></li>
+</ul>
+</li>
+<li><a href="packages.html">Packages</a></li>
+<li><a href="test.html" class="active">Test Service</a></li>
+<li><a href="crypto.html">Crypto Payments</a></li>
+<li><a href="testimonials.html">Results</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="terms.html">Terms</a></li>
+</ul>
+<div class="nav-toggle" id="navToggle">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+
+<!-- Test Service Page -->
+<section class="test-page" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
+<div class="section-header">
+<h1>Test Service — See Real Growth Before Committing</h1>
+<p>Small trial package to verify real growth on one post or story.</p>
+</div>
+
+<div class="test-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 35px 30px; margin-top: 30px;">
+<div class="test-header" style="display: flex; justify-content: space-between; align-items: baseline; gap: 15px; margin-bottom: 25px;">
+<h3>Trial Price</h3>
+<div class="test-price">₹499<span>/one-time</span></div>
+</div>
+
+<p style="color: var(--text-muted); margin-bottom: 25px;">We optimize one post or story and track views & followers for 7 days.</p>
+
+<h4 style="margin-bottom: 15px;">How It Works</h4>
+<div class="test-steps">
+<div class="test-step" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
+<span class="step-num" style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;">1</span>
+<p style="margin: 0; color: var(--text-muted);">You send us the link to your post or story</p>
+</div>
+<div class="test-step" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
+<span class="step-num" style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;">2</span>
+<p style="margin: 0; color: var(--text-muted);">We suggest small edits (caption, hashtags, timing)</p>
+</div>
+<div class="test-step" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
+<span class="step-num" style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;">3</span>
+<p style="margin: 0; color: var(--text-muted);">You apply the changes and post</p>
+</div>
+<div class="test-step" style="display: flex; align-items: flex-start; gap: 12px;">
+<span class="step-num" style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;">4</span>
+<p style="margin: 0; color: var(--text-muted);">We track results for 7 days and send you a report</p>
+</div>
+</div>
+
+<div class="test-options" style="margin-top: 25px;">
+<label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-right: 20px; color: var(--text-muted);">
+<input type="radio" name="testType" value="new" checked style="accent-color: var(--accent);"> New post/story
+</label>
+<label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-muted);">
+<input type="radio" name="testType" value="old" style="accent-color: var(--accent);"> Old post (we suggest edits)
+</label>
+</div>
+
+<a href="contact.html?package=test" class="btn btn-outline-full btn-block" style="margin-bottom: 10px;">Contact About Test Service</a>
+<button class="btn btn-primary btn-block" style="margin-top: 10px;" onclick="startPayment(49900, 'Test Service')">Pay ₹499 Now</button>
+</div>
+
+<div class="note-box" style="margin-top: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 25px;">
+<h3 style="margin-bottom: 10px;">What You Get</h3>
+<ul style="color: var(--text-muted); font-size: 0.95rem; margin-left: 20px;">
+<li>A 7-day growth test on one post or story</li>
+<li>Specific edit suggestions (caption, hashtags, posting time)</li>
+<li>Before/after metrics report (views, followers, engagement)</li>
+<li>Recommendation on whether to scale up to a monthly package</li>
+</ul>
+<p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 15px;">If you're happy with the results, you can upgrade to a monthly package. No obligation.</p>
+</div>
+</section>
+
+<footer style="border-top: 1px solid var(--border); padding: 40px 20px; text-align: center;">
+<div style="max-width: 1100px; margin: 0 auto;">
+<div class="footer-brand" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; display: block;">NexaSocial</div>
+<p style="color: var(--text-muted); margin-bottom: 15px;">Real social media growth for brands and creators.</p>
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+<a href="terms.html" style="color: var(--text-muted); margin: 0 10px;">Terms of Service</a>
+<a href="faq.html" style="color: var(--text-muted); margin: 0 10px;">FAQ</a>
+<a href="contact.html" style="color: var(--text-muted); margin: 0 10px;">Contact</a>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function startPayment(amount, packageName) {
+  const keyId = document.querySelector('meta[name="razorpay-key-id"]')?.content || 'YOUR_RAZORPAY_KEY_ID';
+  if (keyId === 'YOUR_RAZORPAY_KEY_ID') {
+    alert('Razorpay not configured yet. Please contact us to set up payment, or use the contact form to request an invoice.');
+    return;
+  }
+  var options = {
+    "key": keyId,
+    "amount": amount,
+    "currency": "INR",
+    "name": "NexaSocial",
+    "description": packageName + " - Trial Service",
+    "image": "https://nexasocialbrand.netlify.app/",
+    "handler": function (response) {
+      alert('Payment successful! Payment ID: ' + response.razorpay_payment_id + '\n\nPlease share this Payment ID with us via the contact form so we can activate your test service.');
+    },
+    "prefill": {
+      "name": "",
+      "email": "",
+      "contact": ""
+    },
+    "notes": {
+      "package": packageName,
+      "service": "NexaSocial Test Service"
+    },
+    "theme": {
+      "color": "#6366f1"
+    }
+  };
+  var rzp = new Razorpay(options);
+  rzp.open();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages | NexaSocial</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<meta name="razorpay-key-id" content="YOUR_RAZORPAY_KEY_ID">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+<div class="nav-container">
+<div class="nav-logo">NexaSocial</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li class="dropdown">
+<a href="services.html" class="dropdown-toggle">Services ▾</a>
+<ul class="dropdown-menu">
+<li><a href="instagram.html">Instagram</a></li>
+<li><a href="tiktok.html">TikTok</a></li>
+<li><a href="youtube.html">YouTube</a></li>
+<li><a href="facebook.html">Facebook</a></li>
+<li><a href="x.html">X (Twitter)</a></li>
+<li><a href="telegram.html">Telegram</a></li>
+<li><a href="linkedin.html">LinkedIn</a></li>
+<li><a href="custom.html">Custom Campaigns</a></li>
+</ul>
+</li>
+<li><a href="packages.html" class="active">Packages</a></li>
+<li><a href="test.html">Test Service</a></li>
+<li><a href="crypto.html">Crypto Payments</a></li>
+<li><a href="testimonials.html">Results</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="terms.html">Terms</a></li>
+</ul>
+<div class="nav-toggle" id="navToggle">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+
+<!-- Packages Page -->
+<section class="packages-page" style="padding: 60px 20px; max-width: 900px; margin: 0 auto;">
+<div class="section-header">
+<h1>Monthly Packages</h1>
+<p>Simple, transparent pricing. All packages use real marketing only.</p>
+</div>
+
+<div class="pricing-grid">
+<div class="price-card">
+<h3>Starter</h3>
+<div class="price">₹2,999<span>/mo</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Best for new creators and small businesses testing social media.</p>
+<ul class="features">
+<li><i class="fas fa-check" style="color: var(--success);"></i> 1 platform focus</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Profile optimization (bio, highlights)</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Basic organic growth setup</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Bi-weekly progress report</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Email support</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> 1 content calendar per month</li>
+</ul>
+<a href="contact.html?package=starter" class="btn btn-outline-full" style="width: 100%;">Choose Starter</a>
+<button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="startPayment(299900, 'Starter Package')">Pay ₹2,999 Now</button>
+</div>
+
+<div class="price-card featured">
+<div class="badge">Most Popular</div>
+<h3>Growth</h3>
+<div class="price">₹7,999<span>/mo</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Best for established accounts ready to scale.</p>
+<ul class="features">
+<li><i class="fas fa-check" style="color: var(--success);"></i> 2 platforms focus</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Organic growth campaign</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Content strategy review</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Weekly progress report with metrics</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Dedicated campaign manager (WhatsApp/email)</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Basic paid ad setup guidance</li>
+</ul>
+<a href="contact.html?package=growth" class="btn btn-primary" style="width: 100%;">Choose Growth</a>
+<button class="btn btn-outline-full" style="width: 100%; margin-top: 10px;" onclick="startPayment(799900, 'Growth Package')">Pay ₹7,999 Now</button>
+</div>
+
+<div class="price-card">
+<h3>Scale</h3>
+<div class="price">₹15,999<span>/mo</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Best for brands and multi-platform creators.</p>
+<ul class="features">
+<li><i class="fas fa-check" style="color: var(--success);"></i> Up to 3 platforms</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Aggressive growth campaign</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Custom content plan</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Weekly report + 30-min strategy call</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Priority campaign manager</li>
+<li><i class="fas fa-check" style="color: var(--success);"></i> Community management (comments/DMs)</li>
+</ul>
+<a href="contact.html?package=scale" class="btn btn-outline-full" style="width: 100%;">Choose Scale</a>
+<button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="startPayment(1599900, 'Scale Package')">Pay ₹15,999 Now</button>
+</div>
+</div>
+
+<div class="add-ons" style="margin-top: 40px;">
+<h3>Add-On Services</h3>
+<div class="add-ons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+<div class="add-on-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+<h4>Profile Audit + Strategy</h4>
+<div class="price">₹1,499<span>/one-time</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Full profile review with growth roadmap.</p>
+</div>
+<div class="add-on-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+<h4>Viral Campaign</h4>
+<div class="price">₹3,999<span>/one-time</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Single reel/video push to boost views.</p>
+</div>
+<div class="add-on-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+<h4>Influencer Setup</h4>
+<div class="price">₹5,000<span>/one-time</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Micro-influencer collaboration setup.</p>
+</div>
+<div class="add-on-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+<h4>Content Creation</h4>
+<div class="price">₹9,999<span>/month</span></div>
+<p style="color: var(--text-muted); font-size: 0.9rem;">10 reels/posts per month.</p>
+</div>
+</div>
+</div>
+
+<div class="note-box" style="margin-top: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 25px;">
+<h3 style="margin-bottom: 10px;">How Payment Works</h3>
+<ul style="color: var(--text-muted); font-size: 0.95rem; margin-left: 20px;">
+<li>50% deposit before starting work, 50% after first report.</li>
+<li>Or pay full monthly amount upfront for simplicity.</li>
+<li>Crypto clients: full payment upfront (payments are irreversible).</li>
+<li>We accept UPI, Razorpay, and cryptocurrency (BTC, ETH, USDT, BNB).</li>
+</ul>
+</div>
+</section>
+
+<footer style="border-top: 1px solid var(--border); padding: 40px 20px; text-align: center;">
+<div style="max-width: 1100px; margin: 0 auto;">
+<div class="footer-brand" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; display: block;">NexaSocial</div>
+<p style="color: var(--text-muted); margin-bottom: 15px;">Real social media growth for brands and creators.</p>
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+<a href="terms.html" style="color: var(--text-muted); margin: 0 10px;">Terms of Service</a>
+<a href="faq.html" style="color: var(--text-muted); margin: 0 10px;">FAQ</a>
+<a href="contact.html" style="color: var(--text-muted); margin: 0 10px;">Contact</a>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function startPayment(amount, packageName) {
+  const keyId = document.querySelector('meta[name="razorpay-key-id"]')?.content || 'YOUR_RAZORPAY_KEY_ID';
+  if (keyId === 'YOUR_RAZORPAY_KEY_ID') {
+    alert('Razorpay not configured yet. Please contact us to set up payment, or use the contact form to request an invoice.');
+    return;
+  }
+  var options = {
+    "key": keyId,
+    "amount": amount,
+    "currency": "INR",
+    "name": "NexaSocial",
+    "description": packageName + " - Monthly Growth Package",
+    "image": "https://nexasocialbrand.netlify.app/",
+    "handler": function (response) {
+      alert('Payment successful! Payment ID: ' + response.razorpay_payment_id + '\n\nPlease share this Payment ID with us via the contact form so we can activate your package.');
+    },
+    "prefill": {
+      "name": "",
+      "email": "",
+      "contact": ""
+    },
+    "notes": {
+      "package": packageName,
+      "service": "NexaSocial Growth"
+    },
+    "theme": {
+      "color": "#6366f1"
+    }
+  };
+  var rzp = new Razorpay(options);
+  rzp.open();
+}
+</script>
+</body>
+</html>

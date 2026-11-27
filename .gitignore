@@ -1,0 +1,20 @@
+# Temporary files
+.hermes-tmp.*
+deploy-*.zip
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backups
+backups/
+
+# Netlify CLI cache
+.netlify/
