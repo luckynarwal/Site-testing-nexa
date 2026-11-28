@@ -86,7 +86,7 @@ async function startPayment(amount, packageName) {
     order_id: order.id,
     name: 'NexaSocial',
     description: packageName + ' — NexaSocial',
-    image: 'https://nexasocialbrand.netlify.app/',
+    image: 'https://nexasocialhub.netlify.app/',
     prefill: {
       name: '',
       email: '',

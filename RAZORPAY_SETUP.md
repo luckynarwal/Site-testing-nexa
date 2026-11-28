@@ -50,7 +50,7 @@ BUSINESS DETAILS:
 - Business Type: Social Media Marketing Agency (Service-Based)
 - Industry: Digital Marketing / Social Media Management
 - Country: India
-- Website: https://nexasocialbrand.netlify.app
+- Website: https://nexasocialhub.netlify.app
 
 NATURE OF BUSINESS:
 NexaSocial is a legitimate social media marketing agency that provides
@@ -70,7 +70,7 @@ account passwords or login credentials. Results vary by account, niche, and
 content quality — we do not guarantee specific follower counts or engagement
 numbers.
 
-WEBSITE: https://nexasocialbrand.netlify.app
+WEBSITE: https://nexasocialhub.netlify.app
 - Our website clearly outlines our services, pricing, terms of service, and
   privacy policy
 - We explicitly state that we do not sell fake followers or bots
@@ -107,7 +107,7 @@ B. BUSINESS DOCUMENTS:
 - Shop & Establishment License / UDYAM Aadhaar
 - GST Certificate (if applicable)
 - Cancelled cheque or bank statement (business account)
-- Website link: https://nexasocialbrand.netlify.app
+- Website link: https://nexasocialhub.netlify.app
 
 C. WEBSITE REQUIREMENTS (Already Completed ✓):
 - ✓ Clear business description (Social Media Marketing Agency)
