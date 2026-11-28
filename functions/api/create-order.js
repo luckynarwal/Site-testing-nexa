@@ -46,7 +46,7 @@ export async function onRequestPost(context) {
     const res = await fetch('https://api.razorpay.com/v1/orders', {
       method: 'POST',
       headers: {
-        Authorization: `Basic ${auth}`,
+        Authorization: 'Basic ' + auth,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
