@@ -3,11 +3,11 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  source = "/api/create-order"
-  destination = "/.netlify/functions/create-order"
+  from = "/api/create-order"
+  to = "/.netlify/functions/create-order"
   status = 200
 
 [[redirects]]
-  source = "/api/verify-payment"
-  destination = "/.netlify/functions/verify-payment"
+  from = "/api/verify-payment"
+  to = "/.netlify/functions/verify-payment"
   status = 200
