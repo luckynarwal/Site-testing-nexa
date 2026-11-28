@@ -1,6 +1,7 @@
 // Cloudflare Pages Function: POST /api/create-order
 // Creates a Razorpay order. KEY_SECRET never leaves this file.
 // Env vars RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET set in Cloudflare Pages dashboard.
+// Deployed: 2026-11-28 (Cloudflare Pages migration)
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
