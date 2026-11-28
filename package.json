@@ -1,0 +1,23 @@
+{
+  "name": "smm-business",
+  "version": "1.0.0",
+  "description": "Everything you need to launch a client-acquisition system for your SMM/growth service, hosted for free, with no personal face or details required.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckynarwal/Site-testing-nexa.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/luckynarwal/Site-testing-nexa/issues"
+  },
+  "homepage": "https://github.com/luckynarwal/Site-testing-nexa#readme",
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "razorpay": "^2.9.8"
+  }
+}

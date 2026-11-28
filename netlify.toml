@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[redirects]]
+  source = "/api/create-order"
+  destination = "/.netlify/functions/create-order"
+  status = 200
+
+[[redirects]]
+  source = "/api/verify-payment"
+  destination = "/.netlify/functions/verify-payment"
+  status = 200

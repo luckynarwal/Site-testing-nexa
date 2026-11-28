@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<meta name="razorpay-key-id" content="YOUR_RAZORPAY_KEY_ID">
+<meta name="razorpay-key-id" content="rzp_test_U5RxgWpoqsyZfy">
 </head>
 <body>
 
@@ -117,39 +117,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-function startPayment(amount, packageName) {
-  const keyId = document.querySelector('meta[name="razorpay-key-id"]')?.content || 'YOUR_RAZORPAY_KEY_ID';
-  if (keyId === 'YOUR_RAZORPAY_KEY_ID') {
-    alert('Razorpay not configured yet. Please contact us to set up payment, or use the contact form to request an invoice.');
-    return;
-  }
-  var options = {
-    "key": keyId,
-    "amount": amount,
-    "currency": "INR",
-    "name": "NexaSocial",
-    "description": packageName + " - Trial Service",
-    "image": "https://nexasocialbrand.netlify.app/",
-    "handler": function (response) {
-      alert('Payment successful! Payment ID: ' + response.razorpay_payment_id + '\n\nPlease share this Payment ID with us via the contact form so we can activate your test service.');
-    },
-    "prefill": {
-      "name": "",
-      "email": "",
-      "contact": ""
-    },
-    "notes": {
-      "package": packageName,
-      "service": "NexaSocial Test Service"
-    },
-    "theme": {
-      "color": "#6366f1"
-    }
-  };
-  var rzp = new Razorpay(options);
-  rzp.open();
-}
-</script>
+<script src="payment.js"></script>
 </body>
 </html>
